@@ -16,14 +16,14 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/login", login);
+      const res = await axios.post("http://localhost:4000/auth/login", login);
       console.log(res);
       setLogin({
         email: "",
         password: "",
       });
       toast.success("Login successful.");
-      if (res.status === 202) return navigate("/PDash");
+      if (res.status === 200) return navigate("/NavBar");
     } catch (err) {
       console.log(err.response.data);
     }
