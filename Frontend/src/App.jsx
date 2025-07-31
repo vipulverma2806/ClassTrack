@@ -5,6 +5,7 @@ import Status from "./Status";
 import Mark from "./Mark";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Protected from "./Protected";
 const App = () => {
   return (
     <div className="h-full min-h-screen">
@@ -19,12 +20,18 @@ const App = () => {
         draggable
         pauseOnHover
         theme="light"
-        
       />
       <Routes>
         <Route path="/" element={<Login></Login>}></Route>
 
-        <Route path="/NavBar" element={<NavBar />}>
+        <Route
+          path="/NavBar"
+          element={
+            <Protected>
+              <NavBar />
+            </Protected>
+          }
+        >
           <Route path="status" element={<Status />}></Route>
           <Route path="" element={<Mark />}></Route>
         </Route>

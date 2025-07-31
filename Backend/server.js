@@ -10,6 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 require("dotenv").config();
 const PORT = process.env.PORT;
 const Teacher = require("./models/Teacher.model");
+const apiRoutes = require("./routes/apiRoutes");
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -19,11 +20,11 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use("/auth", authRoutes);
+app.use("/api", apiRoutes);
+
 connectDB();
 
 // create(); to addteacher
-
-app.post("/auth/login",authRoutes);
 
 app.listen(PORT, (err) => {
   if (err) {
