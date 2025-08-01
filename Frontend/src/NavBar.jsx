@@ -7,11 +7,11 @@ const NavBar = () => {
   const handlePage = () => {
     if (Page) {
         console.log("1")
-      navigate("/NavBar/Status");
+      navigate("/navbar/Status");
 
      return setPage(false);
     }
-     navigate("/NavBar");
+     navigate("/navbar");
      return setPage(true);
   };
   return (

@@ -23,7 +23,7 @@ const Login = () => {
         password: "",
       });
       toast.success("Login successful.");
-      if (res.status === 200) return navigate("/NavBar");
+      if (res.status === 200) return navigate("/navbar");
     } catch (err) {
       console.log(err.response.data);
     }

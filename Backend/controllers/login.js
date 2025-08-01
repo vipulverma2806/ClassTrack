@@ -1,13 +1,14 @@
-const Teacher = require("../models/Teacher.model")
-const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
+const Teacher = require("../models/Teacher.model");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
+  
   const { email, password } = req.body;
 
   try {
     const found = await Teacher.findOne({ email });
-    console.log(found);
+    // console.log(found);
     if (!found) return res.status(404).json("Teacher not found");
     const compare = await bcrypt.compare(password, found.password);
     if (!compare) return res.status(401).json("Invalid credentials");
@@ -19,6 +20,6 @@ const login = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 module.exports = login;

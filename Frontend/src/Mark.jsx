@@ -25,9 +25,12 @@ const Mark = () => {
   const [dummyData, setDummyData] = useState([]);
 
   const getStudents = async () => {
+    
     try {
       const res = await axios.get("http://localhost:4000/api/getStudents");
       setDummyData(res.data.default);
+      console.log("working")
+      console.log(res)
     } catch (err) {
       console.log(err);
     }
