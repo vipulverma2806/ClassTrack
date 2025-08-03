@@ -24,7 +24,7 @@ const Mark = () => {
     });
     console.log(attendanceArray);
     try {
-      const res = await axios.post(`/api/attendance`, attendanceArray);
+      const res = await axios.post(`http://localhost:4000/api/attendance`, attendanceArray);
       console.log(res);
     } catch (err) {console.log(err)}
     setCourse('');
