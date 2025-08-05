@@ -6,6 +6,7 @@ import Mark from "./Mark";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Protected from "./Protected";
+import AddStudents from "./AddStudents";
 const App = () => {
   return (
     <div className="h-full min-h-screen">
@@ -33,6 +34,7 @@ const App = () => {
           }
         >
           <Route path="status" element={<Status />}></Route>
+          <Route path="addstudents" element={<AddStudents />}></Route>
           <Route path="" element={<Mark />}></Route>
         </Route>
       </Routes>

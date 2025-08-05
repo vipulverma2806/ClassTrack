@@ -35,7 +35,8 @@ const Mark = () => {
   const getStudents = async () => {
     try {
       const res = await axios.get("http://localhost:4000/api/getStudents");
-      setDummyData(res.data.default);
+      console.log(res.data)
+      setDummyData(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -106,7 +107,7 @@ const Mark = () => {
 
                     <div className="flex gap-x-7">
                       <div>
-                        {" "}
+                       
                         <input
                           className="mr-2"
                           type="checkbox"
@@ -121,20 +122,7 @@ const Mark = () => {
                         <span>Present</span>
                       </div>
 
-                      {/* <div>
-                        <input
-                          className="mr-2"
-                          type="checkbox"
-                          checked={isChecked[stu.rollNo] === false}
-                          onChange={(e) =>
-                            setIsChecked((prev) => ({
-                              ...prev,
-                              [stu.rollNo]: !e.target.checked,
-                            }))
-                          }
-                        />
-                        <span>Absent</span>
-                      </div> */}
+                  
                     </div>
                   </div>
                 );
