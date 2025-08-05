@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -7,10 +7,25 @@ import { toast } from "react-toastify";
 const Login = () => {
   axios.defaults.withCredentials = true;
   const navigate = useNavigate();
+  const [auth, setAuth] = useState(null);
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const handleAuth = async () => {
+      try {
+        const res = await axios.get("http://localhost:4000/auth/protect");
+        setAuth(true);
+        navigate("/navbar");
+      } catch (err) {
+        console.log(err);
+        setAuth(false);
+      }
+    };
+    handleAuth();
+  }, []);
 
   //------------------Login-------------------
   const handleLogin = async (e) => {
@@ -29,10 +44,14 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-gray-900 flex justify-center items-center">
+    <div className="min-h-screen bg-gray-900 flex justify-center items-center bg-">
+      <div className="hidden lg:block w-1/2">
+        <h1 className="font-bold italic text-8xl text-gray-100 ">ClassTrack</h1>
+      </div>
+
       <form
         onSubmit={handleLogin}
-        className="bg-gray-800 flex flex-col p-6  rounded-2xl space-y-5 max-w-sm w-full"
+        className="bg-gray-800 flex flex-col p-6  rounded-2xl space-y-5 max-w-sm w-1/2"
       >
         <h1 className="text-gray-100 text-center text-2xl font-bold">Login</h1>
 

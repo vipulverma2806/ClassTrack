@@ -22,7 +22,8 @@ const AddStudents = () => {
       });
       toast.success("Student Added Successfully");
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
+      toast.error(`${err.response.data}`)
     }
 
     // console.log(form);
@@ -86,7 +87,7 @@ const AddStudents = () => {
         </div>
         <button
           type="submit"
-          className="w-1/4 p-2 mt-3 rounded-2xl bg-gray-500 text-2xl text-white"
+          className="w-1/4 p-2 mt-3 hover:bg-gray-900 rounded-2xl bg-gray-700 text-2xl text-white"
         >
           Submit
         </button>

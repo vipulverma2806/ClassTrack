@@ -1,18 +1,19 @@
 import React from "react";
-import Login from "./Login";
-import NavBar from "./NavBar";
-import Status from "./Status";
-import Mark from "./Mark";
+import Login from "./pages/Login";
+import NavBar from "./components/NavBar";
+import Status from "./pages/Status";
+import Mark from "./pages/Mark";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Protected from "./Protected";
-import AddStudents from "./AddStudents";
+import Protected from "./components/Protected";
+import AddStudents from "./pages/AddStudents";
+import NA from "./components/NA";
 const App = () => {
   return (
     <div className="h-full min-h-screen">
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
@@ -36,7 +37,9 @@ const App = () => {
           <Route path="status" element={<Status />}></Route>
           <Route path="addstudents" element={<AddStudents />}></Route>
           <Route path="" element={<Mark />}></Route>
+          <Route path="*" element={<NA />}></Route>
         </Route>
+        <Route path="*" element={<NA/>}></Route>
       </Routes>
     </div>
   );

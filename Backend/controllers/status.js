@@ -1,10 +1,10 @@
 const Student = require("../models/student.model");
-
+const Entry = require("../models/entries.model")
 const status = async (req, res) => {
   const course = req.params.course;
   
   try {
-    const students = await Student.find({ class: course });
+    const students = await Entry.find({ class: course }).sort({rollNo:1});
     const distinctDays = await Student.distinct("date", { class: course });
     const totalDays = distinctDays.length;
 
@@ -14,7 +14,7 @@ const status = async (req, res) => {
           rollNo: student.rollNo,
           class: course,
           status: true,
-        });
+        })
         const attendancePercentage =
           totalDays === 0 ? 0 : (presentDays / totalDays) * 100;
         return {

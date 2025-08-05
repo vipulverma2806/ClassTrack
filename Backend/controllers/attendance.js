@@ -3,7 +3,7 @@ const Student = require("../models/student.model");
 
 const attendance = async (req, res) => {
   //   console.log(req.body);
-  const results = [];
+  // const results = [];
   let hasError;
   for (const student of req.body) {
     try {
@@ -17,11 +17,11 @@ const attendance = async (req, res) => {
         { $set: { status: student.status } },
         { upsert: true }
       );
-      results.push(result);
+      // results.push(result);
       console.log(res);
     } catch (err) {
       hasError = true;
-      results.push(err);
+      // results.push(err);
       console.log(err);
     }
   }

@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Mark = () => {
   axios.defaults.withCredentials = true;
@@ -28,6 +29,7 @@ const Mark = () => {
       console.log(res);
     } catch (err) {console.log(err)}
     setCourse('');
+    toast.success("Attendance Marked")
     return setIsChecked({});
   };
 
@@ -132,7 +134,7 @@ const Mark = () => {
         {course && (
           <button
             type="submit"
-            className="w-1/4 p-1 rounded-2xl bg-gray-500 text-2xl text-white"
+            className="w-1/4 p-1 hover:bg-gray-900 rounded-2xl bg-gray-700 text-2xl text-white"
           >
             Submit
           </button>

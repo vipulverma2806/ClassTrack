@@ -1,8 +1,8 @@
-const DummyStudent = require("../config/DummyStudents");
+
 const Entry = require("../models/entries.model");
 const getStudents = async (req, res) => {
   try {
-    const found = await Entry.find();
+    const found = await Entry.find().sort({rollNo:1});
     // console.log(found)
     res.status(200).json(found);
   } catch (err) {
