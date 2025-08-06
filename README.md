@@ -1,6 +1,7 @@
 # ClassTrack
 
 **ClassTrack** is a full-stack MERN (MongoDB, Express.js, React, Node.js) application built for teachers to efficiently manage and track student attendance. Teachers can securely log in, add students, mark attendance datewise and classwise, and generate classwise attendance reports with percentages.
+
 ---
 
 ##  Features
