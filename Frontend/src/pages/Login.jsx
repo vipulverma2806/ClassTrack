@@ -46,7 +46,8 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gray-900 flex justify-center items-center bg-">
       <div className="hidden lg:block w-1/2">
-        <h1 className="font-bold italic text-8xl text-gray-100 ">ClassTrack</h1>
+        <h1 className="font-bold italic  border-b-4 w-fit text-8xl text-gray-100 ">ClassTrack </h1>
+        <h2 className="text-4xl italic tracking-wide text-gray-300">  A Student Management App</h2>
       </div>
 
       <form
